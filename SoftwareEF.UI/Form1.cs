@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,10 @@ namespace SoftwareEF.UI
         private void buttonList_Click(object sender, EventArgs e)
         {
             SoftwareDbContext context = new SoftwareDbContext();
-            List<SoftwareList> list = context.SoftwareList.ToList();
+            List<SoftwareList> softwares = context.SoftwareList.ToList();
+
+            dataGridViewSoftwareList.DataSource = softwares;
+
         }
     }
 }
